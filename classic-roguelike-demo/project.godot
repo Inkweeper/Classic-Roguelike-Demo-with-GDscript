@@ -14,15 +14,21 @@ config/name="classic-roguelike-demo"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+EventBus="*res://global/event_bus/event_bus.tscn"
+
 [file_customization]
 
 folder_colors={
-"res://_game_data/": "purple",
 "res://component/": "yellow",
 "res://entity/": "red",
-"res://global_manager/": "blue",
+"res://game_data/": "purple",
+"res://global/": "teal",
 "res://main_scene/": "orange",
-"res://resource/": "green"
+"res://manager/": "blue",
+"res://resource/": "green",
+"res://system_structure/": "red"
 }
 
 [rendering]

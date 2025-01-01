@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3exj0afghhlk"]
+
+[ext_resource type="Script" path="res://system_structure/state_machine/statemachine.gd" id="1_o5kfs"]
+[ext_resource type="Script" path="res://main_scene/game_statemachine/preparation_state.gd" id="2_0buoi"]
+[ext_resource type="Script" path="res://main_scene/game_statemachine/game_loop_state.gd" id="3_5fcrl"]
+[ext_resource type="PackedScene" uid="uid://cgxtm7jrj54el" path="res://main_scene/game_statemachine/game_loop_statemachine/game_loop_statemachine.tscn" id="4_qxwui"]
+[ext_resource type="Script" path="res://main_scene/game_statemachine/exit_state.gd" id="4_wbyaj"]
+
+[node name="GameStatemachine" type="Node" node_paths=PackedStringArray("startState")]
+script = ExtResource("1_o5kfs")
+startState = NodePath("PreparationState")
+
+[node name="PreparationState" type="Node" parent="."]
+script = ExtResource("2_0buoi")
+
+[node name="GameLoopState" type="Node" parent="."]
+script = ExtResource("3_5fcrl")
+
+[node name="GameLoopStatemachine" parent="GameLoopState" instance=ExtResource("4_qxwui")]
+
+[node name="ExitState" type="Node" parent="."]
+script = ExtResource("4_wbyaj")

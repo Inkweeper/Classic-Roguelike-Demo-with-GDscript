@@ -1,0 +1,34 @@
+[gd_scene load_steps=9 format=3 uid="uid://cgxtm7jrj54el"]
+
+[ext_resource type="Script" path="res://system_structure/state_machine/sub_statemachine.gd" id="1_hr4r4"]
+[ext_resource type="Script" path="res://main_scene/game_statemachine/game_loop_statemachine/maintainance_state.gd" id="2_nogpq"]
+[ext_resource type="Script" path="res://main_scene/game_statemachine/game_loop_statemachine/tick_starting_state.gd" id="3_6nnp7"]
+[ext_resource type="Script" path="res://main_scene/game_statemachine/game_loop_statemachine/player_phase_state.gd" id="4_urnq1"]
+[ext_resource type="Script" path="res://main_scene/game_statemachine/game_loop_statemachine/projectile_phase_state.gd" id="5_15kd8"]
+[ext_resource type="PackedScene" uid="uid://copqf7teqh7vs" path="res://main_scene/game_statemachine/game_loop_statemachine/player_phase_statemachine/player_phase_statemachine.tscn" id="5_yic2a"]
+[ext_resource type="Script" path="res://main_scene/game_statemachine/game_loop_statemachine/enemy_phase_state.gd" id="6_fyhj3"]
+[ext_resource type="Script" path="res://main_scene/game_statemachine/game_loop_statemachine/tick_ending_state.gd" id="7_jpusb"]
+
+[node name="GameLoopStatemachine" type="Node" node_paths=PackedStringArray("startState")]
+script = ExtResource("1_hr4r4")
+startState = NodePath("MaintainanceState")
+
+[node name="MaintainanceState" type="Node" parent="."]
+script = ExtResource("2_nogpq")
+
+[node name="TickStartingState" type="Node" parent="."]
+script = ExtResource("3_6nnp7")
+
+[node name="PlayerPhaseState" type="Node" parent="."]
+script = ExtResource("4_urnq1")
+
+[node name="PlayerPhaseStatemachine" parent="PlayerPhaseState" instance=ExtResource("5_yic2a")]
+
+[node name="ProjectilePhaseState" type="Node" parent="."]
+script = ExtResource("5_15kd8")
+
+[node name="EnemyPhaseState" type="Node" parent="."]
+script = ExtResource("6_fyhj3")
+
+[node name="TickEndingState" type="Node" parent="."]
+script = ExtResource("7_jpusb")

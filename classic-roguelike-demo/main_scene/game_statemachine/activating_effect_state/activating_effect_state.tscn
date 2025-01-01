@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://fccnfx4mc8bn"]
+
+[ext_resource type="Script" path="res://main_scene/game_statemachine/activating_effect_state/activating_effect_state.gd" id="1_s88k4"]
+
+[node name="ActivatingEffectState" type="Node"]
+script = ExtResource("1_s88k4")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://copqf7teqh7vs"]
+
+[ext_resource type="Script" path="res://system_structure/state_machine/sub_statemachine.gd" id="1_ofu36"]
+[ext_resource type="Script" path="res://main_scene/game_statemachine/game_loop_statemachine/player_phase_statemachine/waiting_for_instruction_state.gd" id="2_g1yyh"]
+[ext_resource type="Script" path="res://main_scene/game_statemachine/game_loop_statemachine/player_phase_statemachine/player_action_state.gd" id="3_ms48x"]
+[ext_resource type="PackedScene" uid="uid://fccnfx4mc8bn" path="res://main_scene/game_statemachine/activating_effect_state/activating_effect_state.tscn" id="4_aymka"]
+
+[node name="PlayerPhaseStatemachine" type="Node" node_paths=PackedStringArray("startState")]
+script = ExtResource("1_ofu36")
+startState = NodePath("WaitingForInstructionState")
+
+[node name="WaitingForInstructionState" type="Node" parent="."]
+script = ExtResource("2_g1yyh")
+
+[node name="PlayerActionState" type="Node" parent="."]
+script = ExtResource("3_ms48x")
+
+[node name="ActivatingEffectState" parent="." instance=ExtResource("4_aymka")]
