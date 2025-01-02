@@ -6,7 +6,7 @@ func initialize():
 func enter():
 	# FIXME
 	print("tickstarting")
-	transitioned.emit(self,"PlayerPhaseState")
+	transitioned.emit(self,"WaitingForInstructionState")
 	pass
 
 func exit():

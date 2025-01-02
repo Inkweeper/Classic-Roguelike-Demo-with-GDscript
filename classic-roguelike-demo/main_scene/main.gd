@@ -4,7 +4,7 @@ class_name Main
 
 @onready var game_statemachine: Statemachine = $GameStatemachine
 
-static var TICK_PER_CYCLE : int = 60
+static var TICK_PER_CYCLE : int = 30
 
 var cycle_count : int = 1
 var tick_count : = 1 :
@@ -13,6 +13,7 @@ var tick_count : = 1 :
 			cycle_count += v / TICK_PER_CYCLE
 			tick_count = v % TICK_PER_CYCLE
 
+## 目标前往的楼层
 var target_level 
 
 func _ready() -> void:

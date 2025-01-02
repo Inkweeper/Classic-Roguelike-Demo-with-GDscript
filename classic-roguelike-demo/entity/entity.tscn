@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c08t0soahi4uu"]
+
+[ext_resource type="Script" path="res://entity/entity.gd" id="1_hsrwq"]
+[ext_resource type="Texture2D" uid="uid://cgvlyrcf1o30" path="res://assets/textures/sprite_sheet.png" id="2_625ql"]
+
+[node name="Entity" type="Node2D"]
+script = ExtResource("1_hsrwq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_625ql")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="Area2D" type="Area2D" parent="."]
+monitoring = false
