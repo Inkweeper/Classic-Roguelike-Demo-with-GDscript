@@ -19,6 +19,10 @@ func update():
 		component.update()
 
 func try_execute(method_name : String, args : Array):
+	if self.has_method(method_name):
+		callv(method_name, args)
+		return
 	for component in component_list:
 		if component.has_method(method_name):
 			component.callv(method_name, args)
+			return

@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 
 EventBus="*res://global/event_bus/event_bus.tscn"
 GlobalValue="*res://global/global_value/global_value.gd"
-InputManager="*res://global/input_manager/input_manager.tscn"
+InstructionManager="*res://global/input_manager/instruction_manager.tscn"
 
 [file_customization]
 
@@ -28,6 +28,7 @@ folder_colors={
 "res://game_data/": "purple",
 "res://global/": "teal",
 "res://main_scene/": "orange",
+"res://refcounted/": "yellow",
 "res://resource/": "green",
 "res://system_structure/": "red"
 }
