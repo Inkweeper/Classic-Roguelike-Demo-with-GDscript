@@ -18,9 +18,20 @@ static func new_action(executer:Entity, type:Type, args:Array)->Action:
 	action.executer = executer
 	action.type = type
 	# 根据type检查args是否合格
+	# TODO 完善其他Action.Type
 	match type:
 		Action.Type.MOVE:
 			if args.size() != 1 or args[0] is not Vector2i:
 				push_error("invalid movement action!")
 	action.args = args
 	return action
+
+static func new_move_action(executer:Entity, args:Array)->Action:
+	var action : Action = Action.new()
+	action.executer = executer
+	action.type = Action.Type.MOVE
+	if args.size() != 1 or args[0] is not Vector2i:
+		push_error("invalid movement action!")
+	action.args = args
+	return action
+	
