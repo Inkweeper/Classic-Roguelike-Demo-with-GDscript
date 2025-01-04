@@ -4,9 +4,12 @@ func initialize():
 	pass
 
 func enter():
-	# FIXME
+	# HACK
 	print("maintaining")
-	transitioned.emit(self,"TickStartingState")
+	var lambda = func():
+		transitioned.emit(self,"TickStartingState")
+	lambda.call_deferred()
+	
 	pass
 
 func exit():

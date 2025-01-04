@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://biqks10l3bx7x"]
+
+[ext_resource type="Script" path="res://global/action_interpreter/action_interpreter.gd" id="1_tqa8j"]
+
+[node name="ActionInterpreter" type="Node"]
+script = ExtResource("1_tqa8j")

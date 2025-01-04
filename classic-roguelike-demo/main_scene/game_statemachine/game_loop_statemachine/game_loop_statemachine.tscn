@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgxtm7jrj54el"]
+[gd_scene load_steps=9 format=3 uid="uid://cgxtm7jrj54el"]
 
 [ext_resource type="Script" path="res://system_structure/state_machine/sub_statemachine.gd" id="1_hr4r4"]
 [ext_resource type="Script" path="res://main_scene/game_statemachine/game_loop_statemachine/maintainance_state.gd" id="2_nogpq"]
@@ -6,13 +6,12 @@
 [ext_resource type="Script" path="res://main_scene/game_statemachine/game_loop_statemachine/waiting_for_instruction_state.gd" id="4_jukrq"]
 [ext_resource type="Script" path="res://main_scene/game_statemachine/game_loop_statemachine/projectile_phase_state.gd" id="5_15kd8"]
 [ext_resource type="Script" path="res://main_scene/game_statemachine/game_loop_statemachine/player_action_state.gd" id="5_qyv08"]
-[ext_resource type="PackedScene" uid="uid://fccnfx4mc8bn" path="res://main_scene/game_statemachine/activating_effect_state/activating_effect_state.tscn" id="6_250q4"]
 [ext_resource type="Script" path="res://main_scene/game_statemachine/game_loop_statemachine/enemy_phase_state.gd" id="6_fyhj3"]
 [ext_resource type="Script" path="res://main_scene/game_statemachine/game_loop_statemachine/tick_ending_state.gd" id="7_jpusb"]
 
-[node name="GameLoopStatemachine" type="Node" node_paths=PackedStringArray("startState")]
+[node name="GameLoopStatemachine" type="Node" node_paths=PackedStringArray("start_state")]
 script = ExtResource("1_hr4r4")
-startState = NodePath("MaintainanceState")
+start_state = NodePath("MaintainanceState")
 
 [node name="MaintainanceState" type="Node" parent="."]
 script = ExtResource("2_nogpq")
@@ -26,17 +25,11 @@ script = ExtResource("4_jukrq")
 [node name="PlayerActionState" type="Node" parent="."]
 script = ExtResource("5_qyv08")
 
-[node name="ActivatingEffectState" parent="." instance=ExtResource("6_250q4")]
-
 [node name="ProjectilePhaseState" type="Node" parent="."]
 script = ExtResource("5_15kd8")
 
-[node name="ActivatingEffectState2" parent="." instance=ExtResource("6_250q4")]
-
 [node name="EnemyPhaseState" type="Node" parent="."]
 script = ExtResource("6_fyhj3")
-
-[node name="ActivatingEffectState3" parent="." instance=ExtResource("6_250q4")]
 
 [node name="TickEndingState" type="Node" parent="."]
 script = ExtResource("7_jpusb")

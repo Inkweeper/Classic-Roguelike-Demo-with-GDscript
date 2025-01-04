@@ -4,7 +4,10 @@ func initialize():
 	pass
 
 func enter():
-	pass
+	ActionInterpreter.execute_action()
+	# HACK
+	print("trying to execute action")
+	transitioned.emit(self,"MaintainanceState")
 
 func exit():
 	pass

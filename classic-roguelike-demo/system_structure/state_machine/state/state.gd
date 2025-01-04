@@ -4,7 +4,7 @@ class_name State
 ## (self, newStateName:String)
 signal transitioned(state_self:State,newStateName:String)
 
-var stateMachine: Statemachine
+var state_machine: Statemachine
 
 func initialize():
 	pass

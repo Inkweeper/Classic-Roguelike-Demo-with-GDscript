@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cgxtm7jrj54el" path="res://main_scene/game_statemachine/game_loop_statemachine/game_loop_statemachine.tscn" id="4_qxwui"]
 [ext_resource type="Script" path="res://main_scene/game_statemachine/exit_state.gd" id="4_wbyaj"]
 
-[node name="GameStatemachine" type="Node" node_paths=PackedStringArray("startState")]
+[node name="GameStatemachine" type="Node" node_paths=PackedStringArray("start_state")]
 script = ExtResource("1_o5kfs")
-startState = NodePath("PreparationState")
+start_state = NodePath("PreparationState")
 
 [node name="PreparationState" type="Node" parent="."]
 script = ExtResource("2_0buoi")

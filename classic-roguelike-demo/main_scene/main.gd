@@ -3,6 +3,11 @@ extends Node
 class_name Main
 
 @onready var game_statemachine: Statemachine = $GameStatemachine
+@onready var world: Node2D = $World
+
+# HACK
+@onready var player: Player = $World/PlayerLayer/Player
+
 
 static var TICK_PER_CYCLE : int = 30
 
@@ -18,6 +23,8 @@ var target_level
 
 func _ready() -> void:
 	game_statemachine.initialize.call_deferred()
+	player.initialize.call_deferred()
+	
 
 func _process(delta: float) -> void:
 	game_statemachine.update(delta)
