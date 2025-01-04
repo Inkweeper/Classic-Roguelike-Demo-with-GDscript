@@ -99,7 +99,7 @@
 </node>
 <node TEXT="玩家阶段&#xa;PlayerPhaseState" LOCALIZED_STYLE_REF="AutomaticLayout.level,3" ID="ID_542801502" CREATED="1735029943716" MODIFIED="1735031759010">
 <node TEXT="等待玩家指示" LOCALIZED_STYLE_REF="AutomaticLayout.level,3" ID="ID_424203867" CREATED="1735030428635" MODIFIED="1735721034582">
-<node TEXT="这个状态关联到3个部分" ID="ID_1379197693" CREATED="1735031508030" MODIFIED="1735719136726">
+<node TEXT="关联到3个部分" ID="ID_1379197693" CREATED="1735031508030" MODIFIED="1735972387344">
 <node TEXT="1. 场景树中的输入捕捞&#xa;包括gui节点与一般节点, 都有可能截获玩家输入, 并且在适当时机把输入解释为ins, 将instruction传递给InstructionManager" ID="ID_1096193235" CREATED="1735719387443" MODIFIED="1735721142269"/>
 <node TEXT="2. Instruction处理&#xa;本状态监听到InstructionManager不为空时, 进入玩家行动状态, 将Instruction解释为行动" ID="ID_673331916" CREATED="1735721038128" MODIFIED="1735721127083"/>
 </node>
