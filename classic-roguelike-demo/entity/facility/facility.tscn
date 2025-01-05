@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://mo78pj4x7dxg"]
+
+[ext_resource type="PackedScene" uid="uid://c08t0soahi4uu" path="res://entity/entity.tscn" id="1_5ae5x"]
+[ext_resource type="Script" path="res://entity/facility/facility.gd" id="2_01r43"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfkwx"]
+size = Vector2(32, 32)
+
+[node name="Facility" instance=ExtResource("1_5ae5x")]
+script = ExtResource("2_01r43")
+
+[node name="Area2D" parent="." index="1"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_vfkwx")

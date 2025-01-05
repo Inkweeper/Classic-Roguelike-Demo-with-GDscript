@@ -18,13 +18,14 @@ var tick_count : = 1 :
 			cycle_count += v / TICK_PER_CYCLE
 			tick_count = v % TICK_PER_CYCLE
 
-## 目标前往的楼层
-var target_level 
+# 用于记录楼层变更的变量
+var last_level : int = -1
+var target_level : int = 0
 
 func _ready() -> void:
+	GlobalValue.main_scene = self
 	game_statemachine.initialize.call_deferred()
 	player.initialize.call_deferred()
-	
 
 func _process(delta: float) -> void:
 	game_statemachine.update(delta)

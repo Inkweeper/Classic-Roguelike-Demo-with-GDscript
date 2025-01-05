@@ -18,9 +18,14 @@ config/icon="res://icon.svg"
 [autoload]
 
 EventBus="*res://global/event_bus/event_bus.tscn"
-GlobalValue="*res://global/global_value/global_value.gd"
+GlobalValue="*res://global/global_value/global_value.tscn"
 InstructionManager="*res://global/instruction_manager/instruction_manager.tscn"
 ActionInterpreter="*res://global/action_interpreter/action_interpreter.tscn"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
 
 [file_customization]
 
@@ -28,7 +33,7 @@ folder_colors={
 "res://component/": "yellow",
 "res://entity/": "red",
 "res://game_data/": "purple",
-"res://global/": "teal",
+"res://global/": "blue",
 "res://main_scene/": "orange",
 "res://refcounted/": "yellow",
 "res://resource/": "green",
@@ -102,6 +107,13 @@ right={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194447,"key_label":0,"unicode":57,"location":0,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="block_movement"
+2d_physics/layer_2="projectile"
+2d_physics/layer_3="collectable"
+2d_physics/layer_4="facility"
 
 [rendering]
 

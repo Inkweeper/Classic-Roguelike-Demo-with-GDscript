@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="MapGenerationReference" load_steps=7 format=3 uid="uid://bnh5xe77wfpot"]
+
+[ext_resource type="Script" path="res://resource/map_generation_reference/level_record/level_record.gd" id="1_mlrs0"]
+[ext_resource type="Resource" uid="uid://wslj16kwxum8" path="res://resource/map_generation_reference/map_generation_rule/nine_rect_dungeon/nine_rect_dungeon_generation_rule.tres" id="2_a8l2m"]
+[ext_resource type="Script" path="res://resource/map_generation_reference/map_generation_reference.gd" id="2_q6e0l"]
+
+[sub_resource type="Resource" id="Resource_bsp5h"]
+script = ExtResource("1_mlrs0")
+has_loaded_or_generated = false
+prefabricated = false
+map_generation_rule = ExtResource("2_a8l2m")
+level_map_path = ""
+
+[sub_resource type="Resource" id="Resource_toyhp"]
+script = ExtResource("1_mlrs0")
+has_loaded_or_generated = false
+prefabricated = false
+level_map_path = ""
+
+[sub_resource type="Resource" id="Resource_kujco"]
+script = ExtResource("1_mlrs0")
+has_loaded_or_generated = false
+prefabricated = true
+level_map_path = ""
+
+[resource]
+script = ExtResource("2_q6e0l")
+level_list = Array[ExtResource("1_mlrs0")]([SubResource("Resource_bsp5h"), SubResource("Resource_toyhp"), SubResource("Resource_kujco")])

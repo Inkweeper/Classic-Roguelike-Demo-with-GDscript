@@ -5,7 +5,7 @@ func initialize():
 
 func enter():
 	# HACK
-	print("maintaining")
+	#print("maintaining")
 	var lambda = func():
 		transitioned.emit(self,"TickStartingState")
 	lambda.call_deferred()

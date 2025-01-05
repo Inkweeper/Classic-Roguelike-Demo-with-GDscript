@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="NineRectDungeonGenerationRule" load_steps=2 format=3 uid="uid://wslj16kwxum8"]
+
+[ext_resource type="Script" path="res://resource/map_generation_reference/map_generation_rule/nine_rect_dungeon/nine_rect_dungeon_generation_rule.gd" id="1_opskj"]
+
+[resource]
+script = ExtResource("1_opskj")
+enemy_spawn_list = {}
+max_enemy_cost = 50

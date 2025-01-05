@@ -2,8 +2,28 @@ extends Node
 
 const tile_size : Vector2i = Vector2i(32,32)
 
+var main_scene : Main
 var player : Player
 
+## 地图用枚举
+enum PhysicsLayer {
+	BLOCK_MOVEMENT = 1<<0,
+	PROJECTILE = 1<<1,
+	COLLECTABLE = 1<<2,
+	FACILITY = 1<<3,
+	# 1,2,4,8,16
+}
+enum TerrainSet {
+	DEFAULT,
+	FOG,
+	AIMING,
+}
+enum LevelTerrian {
+	FLOOR,
+	WALL,
+}
+
+# depricated
 ### 本tick行动单位列表
 #var action_entity_list : Array[Entity] = []
 

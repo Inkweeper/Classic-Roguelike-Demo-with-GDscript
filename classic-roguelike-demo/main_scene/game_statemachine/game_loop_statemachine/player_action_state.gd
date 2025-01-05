@@ -6,7 +6,7 @@ func initialize():
 func enter():
 	ActionInterpreter.execute_action()
 	# HACK
-	print("trying to execute action")
+	#print("trying to execute action")
 	transitioned.emit(self,"MaintainanceState")
 
 func exit():

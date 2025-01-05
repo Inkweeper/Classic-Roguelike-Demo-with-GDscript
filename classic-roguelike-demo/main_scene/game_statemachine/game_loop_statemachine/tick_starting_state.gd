@@ -8,7 +8,7 @@ func initialize():
 
 func enter():
 	# HACK
-	print("tickstarting")
+	#print("tickstarting")
 	transitioned.emit(self,"WaitingForInstructionState")
 	pass
 

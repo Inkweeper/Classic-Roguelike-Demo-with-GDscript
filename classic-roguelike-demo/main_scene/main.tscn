@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dolqip4d6hyyg"]
+[gd_scene load_steps=6 format=3 uid="uid://dolqip4d6hyyg"]
 
 [ext_resource type="Script" path="res://main_scene/main.gd" id="1_4mxm4"]
 [ext_resource type="PackedScene" uid="uid://b3exj0afghhlk" path="res://main_scene/game_statemachine/game_statemachine.tscn" id="2_iagmy"]
+[ext_resource type="Script" path="res://main_scene/world.gd" id="3_6fmem"]
 [ext_resource type="PackedScene" uid="uid://ci6x5xx3mjo7k" path="res://entity/character/player/player.tscn" id="3_q8i7x"]
+[ext_resource type="TileSet" uid="uid://iuhjikpmswuf" path="res://resource/tileset/tile_set.tres" id="4_4bc22"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_4mxm4")
@@ -10,19 +12,22 @@ script = ExtResource("1_4mxm4")
 [node name="GameStatemachine" parent="." instance=ExtResource("2_iagmy")]
 
 [node name="World" type="Node2D" parent="."]
+script = ExtResource("3_6fmem")
 
 [node name="Floor" type="TileMapLayer" parent="World"]
+tile_set = ExtResource("4_4bc22")
 
 [node name="CollectableLayer" type="Node" parent="World"]
-
-[node name="Wall" type="TileMapLayer" parent="World"]
 
 [node name="PlayerLayer" type="Node" parent="World"]
 
 [node name="Player" parent="World/PlayerLayer" instance=ExtResource("3_q8i7x")]
+
+[node name="Camera2D" type="Camera2D" parent="World/PlayerLayer/Player"]
 
 [node name="ProjectileLayer" type="Node" parent="World"]
 
 [node name="EnemyLayer" type="Node" parent="World"]
 
 [node name="AimingLine" type="TileMapLayer" parent="World"]
+tile_set = ExtResource("4_4bc22")
