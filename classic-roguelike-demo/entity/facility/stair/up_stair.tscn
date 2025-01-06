@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://b335b5if3ggya"]
-
-[ext_resource type="PackedScene" uid="uid://mo78pj4x7dxg" path="res://entity/facility/facility.tscn" id="1_vnhjv"]
-
-[node name="UpStair" instance=ExtResource("1_vnhjv")]
-
-[node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(128, 288, 32, 32)

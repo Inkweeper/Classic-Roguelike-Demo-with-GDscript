@@ -8,5 +8,5 @@ class_name LevelRecord
 @export var prefabricated : bool = false
 ## 本层地图的生成规则
 @export var map_generation_rule : MapGenerationRule
-## 本层地图地址
-@export var level_map_path : String
+## 本层已生成的存档地址
+@export var level_save_path : String

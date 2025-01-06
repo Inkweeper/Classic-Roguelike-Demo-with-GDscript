@@ -24,8 +24,12 @@ ActionInterpreter="*res://global/action_interpreter/action_interpreter.tscn"
 
 [display]
 
-window/size/viewport_width=1600
-window/size/viewport_height=900
+window/size/viewport_width=800
+window/size/viewport_height=450
+window/size/window_width_override=800
+window/size/window_height_override=450
+window/stretch/mode="viewport"
+window/stretch/scale_mode="integer"
 
 [file_customization]
 

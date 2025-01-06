@@ -6,6 +6,10 @@ class_name Entity
 @onready var area_2d: Area2D = $Area2D
 
 var component_list : Array[Component] = []
+var grid_pos : Vector2i:
+	get():
+		var world : World = GlobalValue.main_scene.world
+		return world.floor.local_to_map(position)
 
 func initialize():
 	for child in get_children():

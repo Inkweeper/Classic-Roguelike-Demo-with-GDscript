@@ -9,20 +9,21 @@ script = ExtResource("1_mlrs0")
 has_loaded_or_generated = false
 prefabricated = false
 map_generation_rule = ExtResource("2_a8l2m")
-level_map_path = ""
+level_save_path = ""
 
 [sub_resource type="Resource" id="Resource_toyhp"]
 script = ExtResource("1_mlrs0")
 has_loaded_or_generated = false
 prefabricated = false
-level_map_path = ""
+level_save_path = ""
 
 [sub_resource type="Resource" id="Resource_kujco"]
 script = ExtResource("1_mlrs0")
 has_loaded_or_generated = false
 prefabricated = true
-level_map_path = ""
+level_save_path = ""
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("2_q6e0l")
 level_list = Array[ExtResource("1_mlrs0")]([SubResource("Resource_bsp5h"), SubResource("Resource_toyhp"), SubResource("Resource_kujco")])

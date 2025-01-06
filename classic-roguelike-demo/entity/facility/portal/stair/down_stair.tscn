@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://g0pct0qi8jdu"]
+
+[ext_resource type="PackedScene" uid="uid://d0fuyjfo7f40t" path="res://entity/facility/portal/portal.tscn" id="1_t8r6a"]
+[ext_resource type="Script" path="res://entity/facility/portal/stair/down_stair.gd" id="2_xs5km"]
+
+[node name="DownStair" instance=ExtResource("1_t8r6a")]
+script = ExtResource("2_xs5km")
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(128, 256, 32, 32)

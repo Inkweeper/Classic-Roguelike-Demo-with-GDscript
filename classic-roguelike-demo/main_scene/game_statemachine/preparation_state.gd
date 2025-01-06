@@ -6,12 +6,14 @@ func initialize():
 
 func enter():
 	# HACK
-	print("preparing")
+	#print("preparing")
+	#var mgr : MapGenerationReference = load("res://resource/map_generation_reference/map_generation_reference.tres").duplicate()
+	#var mg_rule : MapGenerationRule = mgr.level_list[0].map_generation_rule
+	#mg_rule.world = GlobalValue.main_scene.world
+	#mg_rule.generate_map()
 	
-	var mgr : MapGenerationReference = load("res://resource/map_generation_reference/map_generation_reference.tres").duplicate()
-	var mg_rule : MapGenerationRule = mgr.level_list[0].map_generation_rule
-	mg_rule.world = GlobalValue.main_scene.world
-	mg_rule.generate_map()
+	GlobalValue.main_scene.new_game()
+	
 	
 	var timer = get_tree().create_timer(1)
 	await timer.timeout

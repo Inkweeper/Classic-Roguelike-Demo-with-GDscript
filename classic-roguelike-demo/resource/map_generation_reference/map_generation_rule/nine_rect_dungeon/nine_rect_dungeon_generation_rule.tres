@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://resource/map_generation_reference/map_generation_rule/nine_rect_dungeon/nine_rect_dungeon_generation_rule.gd" id="1_opskj"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_opskj")
 enemy_spawn_list = {}
 max_enemy_cost = 50

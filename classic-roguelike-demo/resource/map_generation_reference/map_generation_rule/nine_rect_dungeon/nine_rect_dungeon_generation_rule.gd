@@ -6,8 +6,6 @@ const MAX_ROOM_EDGE : int = 10
 const MIN_ROOM_EDGE : int = 5
 const LEVEL_SIZE : Vector2i = Vector2i(36+6,36+6)
 
-
-
 func generate_map():
 	fullfill_with_walls()
 	dig_nine_rect_rooms_and_z_connect()
@@ -79,6 +77,8 @@ func dig_nine_rect_rooms_and_z_connect():
 					GlobalValue.TerrainSet.DEFAULT,
 					GlobalValue.LevelTerrian.FLOOR,
 				)
+	
+	place_stairs(room_list)
 	
 	# z字连接
 	# 横向
@@ -154,3 +154,36 @@ func dig_nine_rect_rooms_and_z_connect():
 					GlobalValue.LevelTerrian.FLOOR,
 				)
 	
+	
+func place_stairs(room_list:Array[Rect2i]):
+	# 楼梯放置
+	const DOWN_STAIR = preload("res://entity/facility/portal/stair/down_stair.tscn")
+	const UP_STAIR = preload("res://entity/facility/portal/stair/up_stair.tscn")
+	
+	var down_stair = DOWN_STAIR.instantiate()
+	down_stair.from_level = level_count
+	down_stair.to_level = level_count + 1
+	
+	var up_stair = UP_STAIR.instantiate()
+	up_stair.from_level = level_count
+	up_stair.to_level = level_count - 1
+	
+	var room_list_copy : Array[Rect2i] = room_list.duplicate()
+	# 上楼楼梯
+	var room_to_place_stair : Rect2i = room_list_copy.pop_at(randi_range(0, room_list_copy.size()-1))
+	var place_grid :Vector2i = Vector2i(
+		randi_range(0, room_to_place_stair.size.x -1),
+		randi_range(0, room_to_place_stair.size.y -1)
+	) + room_to_place_stair.position
+	var place_pos : Vector2 = world.floor.map_to_local(place_grid)
+	world.facility_layer.add_child(up_stair)
+	up_stair.position = place_pos
+	# 下楼楼梯
+	room_to_place_stair = room_list_copy.pop_at(randi_range(0, room_list_copy.size()-1))
+	place_grid = Vector2i(
+		randi_range(0, room_to_place_stair.size.x -1),
+		randi_range(0, room_to_place_stair.size.y -1)
+	) + room_to_place_stair.position
+	place_pos = world.floor.map_to_local(place_grid)
+	world.facility_layer.add_child(down_stair)
+	down_stair.position = place_pos
