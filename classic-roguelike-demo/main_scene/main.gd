@@ -43,8 +43,9 @@ func new_game():
 	map_generation_reference = load("res://resource/map_generation_reference/map_generation_reference.tres")
 	# 生成第一层地图
 	var mg_rule : MapGenerationRule = map_generation_reference.level_list[0].map_generation_rule
-	mg_rule.world = GlobalValue.main_scene.world
-	mg_rule.level_count = 0
+	#mg_rule.world = GlobalValue.main_scene.world
+	#mg_rule.level_count = 0
+	mg_rule.initialize(0, world)
 	mg_rule.generate_map()
 	# 放置玩家
 	var player_scene : PackedScene = load("res://entity/character/player/player.tscn")

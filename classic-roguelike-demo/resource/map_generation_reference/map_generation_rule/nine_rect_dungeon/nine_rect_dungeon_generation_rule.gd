@@ -6,9 +6,12 @@ const MAX_ROOM_EDGE : int = 10
 const MIN_ROOM_EDGE : int = 5
 const LEVEL_SIZE : Vector2i = Vector2i(36+6,36+6)
 
+var room_cell_list : Array[Vector2i] = []
+
 func generate_map():
 	fullfill_with_walls()
 	dig_nine_rect_rooms_and_z_connect()
+	spawn_enemy()
 
 func spawn_enemy():
 	pass
@@ -77,6 +80,7 @@ func dig_nine_rect_rooms_and_z_connect():
 					GlobalValue.TerrainSet.DEFAULT,
 					GlobalValue.LevelTerrian.FLOOR,
 				)
+				room_cell_list.append(Vector2i(x,y))
 	
 	place_stairs(room_list)
 	
@@ -153,7 +157,6 @@ func dig_nine_rect_rooms_and_z_connect():
 					GlobalValue.TerrainSet.DEFAULT,
 					GlobalValue.LevelTerrian.FLOOR,
 				)
-	
 	
 func place_stairs(room_list:Array[Rect2i]):
 	# 楼梯放置

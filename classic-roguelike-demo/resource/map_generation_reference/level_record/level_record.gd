@@ -8,5 +8,9 @@ class_name LevelRecord
 @export var prefabricated : bool = false
 ## 本层地图的生成规则
 @export var map_generation_rule : MapGenerationRule
+## 本层可生成的敌人列表, 供生成敌人时的参考. 场景路径->权值
+@export var enemy_spawn_list : Dictionary
+## 本层首次可生成的敌人最大cost, 权值和大于此值时停止生成
+@export var max_enemy_spawn_cost : int
 ## 本层已生成的存档地址
 @export var level_save_path : String

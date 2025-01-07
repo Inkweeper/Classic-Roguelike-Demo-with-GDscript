@@ -1,4 +1,4 @@
-extends Entity
+extends Character
 class_name Player
 
 func initialize():
