@@ -1,5 +1,5 @@
 extends Resource
-## 用于存放实体(角色和投掷物)属性的对象类
+## 角色和投射物都需要用到的数值的类
 class_name EntityStat
 
 @export_group("text")
@@ -19,9 +19,5 @@ class_name EntityStat
 @export var block : float
 @export var armor : float
 @export var evasion : float
-
-@export_group("hp mp")
-@export var max_hp : float
-@export var max_mp : float
 
 @export_group("","")
