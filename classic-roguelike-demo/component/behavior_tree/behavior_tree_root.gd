@@ -11,5 +11,7 @@ func initialize():
 			behavior_tree_node_children.append(child)
 	pass
 
+# 默认不考虑子节点返回值, 仅执行. 可覆写
 func behave():
-	pass
+	for behavior in behavior_tree_node_children:
+		behavior.behave()
