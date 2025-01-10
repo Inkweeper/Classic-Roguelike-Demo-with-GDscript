@@ -3,7 +3,7 @@ extends Node
 class_name Main
 
 @onready var game_statemachine: Statemachine = $GameStatemachine
-@onready var world: Node2D = $World
+@onready var world: World = $World
 
 var player : Player
 
@@ -28,12 +28,20 @@ var target_level : int = 0
 
 func _ready() -> void:
 	GlobalValue.main_scene = self
+	EventBus.game_tick_start.connect(_on_game_tick_start)
+	EventBus.game_tick_end.connect(_on_game_tick_end)
 	game_statemachine.initialize.call_deferred()
 	# HACK
 	#player.initialize.call_deferred()
 
 func _process(delta: float) -> void:
 	game_statemachine.update(delta)
+
+func _on_game_tick_start():
+	tick_count += 1
+
+func _on_game_tick_end():
+	pass
 
 ## HACK 创建新游戏. 
 # TODO 其中的生成新存档等res的行为应当交由标题画面场景执行,
@@ -55,4 +63,20 @@ func new_game():
 			player.position = facility.position
 			world.player_layer.add_child(player)
 			break
+	
 	player.initialize()
+	player.newly_spawn()
+	
+	# 生成敌人
+	mg_rule.spawn_enemy()
+
+
+
+# HACK
+#func _input(event: InputEvent) -> void:
+	#if event.is_action("f1"):
+		#var node :PlayerStatComponent =GlobalValue.player.get_node("PlayerStatComponent")
+		#print(node.effective_stat.max_hp)
+		#print(node.effective_stat.max_mp)
+		#print(node.effective_stat.speed)
+		#print(node.effective_stat.atk)

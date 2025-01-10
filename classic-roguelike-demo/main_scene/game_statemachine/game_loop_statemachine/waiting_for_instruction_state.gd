@@ -1,13 +1,17 @@
 extends State
-class_name ActivatingEffectState
 
 func initialize():
 	InstructionManager.instruction_given.connect(_on_instruction_given)
 	pass
 
 func enter():
-	InstructionManager.activated = true
-	pass
+	if GlobalValue.player.if_should_act():
+		#print("go! ")
+		InstructionManager.activated = true
+	else:
+		#print("not your tick! ")
+		transitioned.emit(self,"ProjectilePhaseState")
+
 
 func exit():
 	pass

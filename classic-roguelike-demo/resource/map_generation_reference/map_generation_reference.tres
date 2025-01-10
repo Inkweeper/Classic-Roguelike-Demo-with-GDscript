@@ -1,28 +1,46 @@
-[gd_resource type="Resource" script_class="MapGenerationReference" load_steps=7 format=3 uid="uid://bnh5xe77wfpot"]
+[gd_resource type="Resource" script_class="MapGenerationReference" load_steps=13 format=3 uid="uid://bnh5xe77wfpot"]
 
 [ext_resource type="Script" path="res://resource/map_generation_reference/level_record/level_record.gd" id="1_mlrs0"]
 [ext_resource type="Resource" uid="uid://wslj16kwxum8" path="res://resource/map_generation_reference/map_generation_rule/nine_rect_dungeon/nine_rect_dungeon_generation_rule.tres" id="2_a8l2m"]
+[ext_resource type="PackedScene" uid="uid://b68mf6h2ogkui" path="res://entity/character/enemy/enemy_scene/cock_roach.tscn" id="2_nt82y"]
 [ext_resource type="Script" path="res://resource/map_generation_reference/map_generation_reference.gd" id="2_q6e0l"]
+[ext_resource type="PackedScene" uid="uid://bmekqnioswwsb" path="res://entity/character/enemy/enemy_scene/rat.tscn" id="3_cjsk6"]
+[ext_resource type="PackedScene" uid="uid://bsvtdual3tewn" path="res://entity/character/enemy/enemy_scene/slime.tscn" id="4_o3cpl"]
+[ext_resource type="PackedScene" uid="uid://b1i3rpixth437" path="res://entity/character/enemy/enemy_scene/kobold.tscn" id="6_cte5a"]
+[ext_resource type="PackedScene" uid="uid://bm5thjcht382p" path="res://entity/character/enemy/enemy_scene/skeleton_soldier.tscn" id="7_0lgmc"]
+[ext_resource type="PackedScene" uid="uid://cf2g8ibglq64n" path="res://entity/character/enemy/enemy_scene/skeleton_archer.tscn" id="8_b10kt"]
 
 [sub_resource type="Resource" id="Resource_bsp5h"]
+resource_local_to_scene = true
 script = ExtResource("1_mlrs0")
 has_loaded_or_generated = false
 prefabricated = false
 map_generation_rule = ExtResource("2_a8l2m")
-enemy_spawn_list = {}
-max_enemy_spawn_cost = 0
+enemy_spawn_list = {
+ExtResource("2_nt82y"): 7.0,
+ExtResource("3_cjsk6"): 12.0,
+ExtResource("4_o3cpl"): 3.0
+}
+max_enemy_spawn_cost = 20
 level_save_path = ""
 
 [sub_resource type="Resource" id="Resource_toyhp"]
+resource_local_to_scene = true
 script = ExtResource("1_mlrs0")
 has_loaded_or_generated = false
 prefabricated = false
 map_generation_rule = ExtResource("2_a8l2m")
-enemy_spawn_list = {}
-max_enemy_spawn_cost = 0
+enemy_spawn_list = {
+ExtResource("4_o3cpl"): 15.0,
+ExtResource("6_cte5a"): 8.0,
+ExtResource("7_0lgmc"): 4.0,
+ExtResource("8_b10kt"): 1.0
+}
+max_enemy_spawn_cost = 25
 level_save_path = ""
 
 [sub_resource type="Resource" id="Resource_kujco"]
+resource_local_to_scene = true
 script = ExtResource("1_mlrs0")
 has_loaded_or_generated = false
 prefabricated = true

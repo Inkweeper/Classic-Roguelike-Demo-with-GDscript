@@ -23,10 +23,6 @@ enum LevelTerrian {
 	WALL,
 }
 
-# depricated
-### 本tick行动单位列表
-#var action_entity_list : Array[Entity] = []
-
 ## 当前待执行action
 var _action_to_execute : Action
 

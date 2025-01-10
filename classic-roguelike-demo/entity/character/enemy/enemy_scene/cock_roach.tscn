@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://b68mf6h2ogkui"]
+
+[ext_resource type="PackedScene" uid="uid://15k0rswl20d3" path="res://entity/character/enemy/enemy.tscn" id="1_a7a1f"]
+[ext_resource type="Script" path="res://component/stat_component/character_stat_component/enemy_stat_component/enemy_stat_component.gd" id="2_tsgnq"]
+[ext_resource type="Script" path="res://resource/entity_stat/character_stat/enemy_stat/enemy_stat.gd" id="3_4htwi"]
+[ext_resource type="Script" path="res://resource/base_attribute/base_attribute.gd" id="4_t8nt0"]
+
+[sub_resource type="Resource" id="Resource_n4nuu"]
+resource_local_to_scene = true
+script = ExtResource("3_4htwi")
+exp_reward = 1
+max_hp = 3.0
+max_mp = 0.0
+sight = 4
+name = "蟑螂"
+flavored_text = "康复新液的优质原料"
+speed = 8.0
+tick_to_wait = 0
+atk = 1.0
+crit = 0.0
+precision = 0.0
+block = 0.0
+armor = 0.0
+evasion = 0.17
+
+[sub_resource type="Resource" id="Resource_hmj2y"]
+resource_local_to_scene = true
+script = ExtResource("4_t8nt0")
+strength = 0.0
+agility = 0.0
+constitution = 0.0
+dexterity = 0.0
+intelligence = 0.0
+
+[node name="CockRoach" instance=ExtResource("1_a7a1f")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(32, 0, 32, 32)
+
+[node name="EnemyStatComponent" type="Node" parent="." index="3"]
+script = ExtResource("2_tsgnq")
+base_character_stat = SubResource("Resource_n4nuu")
+base_attribute = SubResource("Resource_hmj2y")

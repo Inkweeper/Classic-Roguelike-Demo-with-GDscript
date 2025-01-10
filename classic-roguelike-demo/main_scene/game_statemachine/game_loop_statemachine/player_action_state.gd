@@ -7,7 +7,7 @@ func enter():
 	ActionInterpreter.execute_action()
 	# HACK
 	#print("trying to execute action")
-	transitioned.emit(self,"MaintainanceState")
+	transitioned.emit(self,"ProjectilePhaseState")
 
 func exit():
 	pass

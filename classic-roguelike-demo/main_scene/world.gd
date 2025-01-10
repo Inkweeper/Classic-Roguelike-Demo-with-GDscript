@@ -4,6 +4,8 @@ class_name World
 
 # tilemaplayers
 @onready var floor: TileMapLayer = $Floor
+@onready var aiming_line: TileMapLayer = $AimingLine
+
 # entity containers
 @onready var facility_layer: Node = $FacilityLayer
 @onready var collectable_layer: Node = $CollectableLayer

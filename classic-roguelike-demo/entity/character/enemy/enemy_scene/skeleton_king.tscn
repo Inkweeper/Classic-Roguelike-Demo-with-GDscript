@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://c7l40eanqp4ea"]
+
+[ext_resource type="PackedScene" uid="uid://15k0rswl20d3" path="res://entity/character/enemy/enemy.tscn" id="1_ie7kw"]
+[ext_resource type="Script" path="res://component/stat_component/character_stat_component/enemy_stat_component/enemy_stat_component.gd" id="2_qq3xg"]
+[ext_resource type="Script" path="res://resource/entity_stat/character_stat/enemy_stat/enemy_stat.gd" id="3_g7hi3"]
+[ext_resource type="Script" path="res://resource/base_attribute/base_attribute.gd" id="4_n6ft4"]
+
+[sub_resource type="Resource" id="Resource_n4nuu"]
+resource_local_to_scene = true
+script = ExtResource("3_g7hi3")
+exp_reward = 40
+max_hp = 30.0
+max_mp = 0.0
+sight = 6
+name = "骷髅王"
+flavored_text = "你此行的目的: 击败他! "
+speed = 6.6
+tick_to_wait = 0
+atk = 20.0
+crit = 0.1
+precision = 0.1
+block = 5.0
+armor = 18.0
+evasion = 0.17
+
+[sub_resource type="Resource" id="Resource_hmj2y"]
+resource_local_to_scene = true
+script = ExtResource("4_n6ft4")
+strength = 10.0
+agility = 16.0
+constitution = 20.0
+dexterity = 10.0
+intelligence = 0.0
+
+[node name="SkeletonKing" instance=ExtResource("1_ie7kw")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(224, 0, 32, 32)
+
+[node name="EnemyStatComponent" type="Node" parent="." index="3"]
+script = ExtResource("2_qq3xg")
+base_character_stat = SubResource("Resource_n4nuu")
+base_attribute = SubResource("Resource_hmj2y")

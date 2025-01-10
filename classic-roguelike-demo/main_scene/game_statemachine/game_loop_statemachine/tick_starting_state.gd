@@ -9,6 +9,7 @@ func initialize():
 func enter():
 	# HACK
 	#print("tickstarting")
+	EventBus.game_tick_start.emit()
 	transitioned.emit(self,"WaitingForInstructionState")
 	pass
 

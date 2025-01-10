@@ -1,7 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://ci6x5xx3mjo7k"]
+[gd_scene load_steps=8 format=3 uid="uid://ci6x5xx3mjo7k"]
 
 [ext_resource type="PackedScene" uid="uid://cnto0vtu10e14" path="res://entity/character/character.tscn" id="1_ty8kb"]
 [ext_resource type="Script" path="res://entity/character/player/player.gd" id="2_avgcs"]
+[ext_resource type="Script" path="res://component/stat_component/character_stat_component/player_stat_component/player_stat_component.gd" id="3_l5sfi"]
+[ext_resource type="Script" path="res://resource/entity_stat/character_stat/player_stat/player_stat.gd" id="4_6cyro"]
+[ext_resource type="Script" path="res://resource/base_attribute/base_attribute.gd" id="5_6qcp7"]
+
+[sub_resource type="Resource" id="Resource_n4uws"]
+resource_local_to_scene = true
+script = ExtResource("4_6cyro")
+level = 1
+exp = 0
+exp_thres = 1
+base_attribute_gain_per_level = 6
+unallocated_attribute = 0
+max_hp = 15.0
+max_mp = 5.0
+sight = 3
+name = "冒险者"
+flavored_text = "\"这场冒险结束我就回老家结婚! \""
+speed = 5.0
+tick_to_wait = 0
+atk = 5.0
+crit = 0.05
+precision = 0.05
+block = 0.0
+armor = 0.0
+evasion = 0.05
+
+[sub_resource type="Resource" id="Resource_rt3be"]
+resource_local_to_scene = true
+script = ExtResource("5_6qcp7")
+strength = 1.0
+agility = 1.0
+constitution = 1.0
+dexterity = 1.0
+intelligence = 1.0
 
 [node name="Player" instance=ExtResource("1_ty8kb")]
 script = ExtResource("2_avgcs")
+
+[node name="PlayerStatComponent" type="Node" parent="." index="3"]
+script = ExtResource("3_l5sfi")
+base_character_stat = SubResource("Resource_n4uws")
+base_attribute = SubResource("Resource_rt3be")

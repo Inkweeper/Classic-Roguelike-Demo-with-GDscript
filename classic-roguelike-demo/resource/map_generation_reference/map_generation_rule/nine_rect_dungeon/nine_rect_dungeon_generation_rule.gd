@@ -6,7 +6,7 @@ const MAX_ROOM_EDGE : int = 10
 const MIN_ROOM_EDGE : int = 5
 const LEVEL_SIZE : Vector2i = Vector2i(36+6,36+6)
 
-var room_cell_list : Array[Vector2i] = []
+var floor_cell_list : Array[Vector2i] = []
 
 func generate_map():
 	fullfill_with_walls()
@@ -14,7 +14,35 @@ func generate_map():
 	spawn_enemy()
 
 func spawn_enemy():
-	pass
+	var enemy_dict : Dictionary = GlobalValue.main_scene.map_generation_reference.level_list[level_count].enemy_spawn_list.duplicate()
+	var enemy_count : int = GlobalValue.main_scene.map_generation_reference.level_list[level_count].max_enemy_spawn_cost
+	var sum_of_duty : float = 0.0
+	
+	# 遍历获得总权值
+	for enemy_packed_scene in enemy_dict.keys():
+		sum_of_duty += enemy_dict[enemy_packed_scene]
+		# 将当前总权值赋回给字典的该场景项
+		enemy_dict[enemy_packed_scene] = sum_of_duty
+	
+	for i in range(enemy_count):
+		var enemy_to_spawn_scene : PackedScene
+		var dice : float = randf_range(0, sum_of_duty)
+		for enemy_packed_scene in enemy_dict.keys():
+			if enemy_dict[enemy_packed_scene] >= dice:
+				enemy_to_spawn_scene = enemy_packed_scene
+				break
+		var grid : Vector2i = try_get_valid_spawn_grid()
+		var enemy : Enemy = enemy_to_spawn_scene.instantiate()
+		world.enemy_layer.add_child(enemy)
+		enemy.grid_pos = grid
+		enemy.initialize()
+		enemy.newly_spawn()
+		
+func try_get_valid_spawn_grid()->Vector2i:
+	var grid : Vector2i = floor_cell_list.pick_random()
+	while(world.check_blockmovement(grid)):
+		grid = floor_cell_list.pick_random()
+	return grid
 
 
 func fullfill_with_walls():
@@ -69,7 +97,6 @@ func dig_nine_rect_rooms_and_z_connect():
 			)
 			room_list[j*3+i] = room
 	
-	print(room_list)
 	
 	# 房间挖掘
 	for room in room_list:
@@ -80,7 +107,7 @@ func dig_nine_rect_rooms_and_z_connect():
 					GlobalValue.TerrainSet.DEFAULT,
 					GlobalValue.LevelTerrian.FLOOR,
 				)
-				room_cell_list.append(Vector2i(x,y))
+				floor_cell_list.append(Vector2i(x,y))
 	
 	place_stairs(room_list)
 	
@@ -115,12 +142,14 @@ func dig_nine_rect_rooms_and_z_connect():
 				corridor_list.append(Vector2i(twist_x, i))
 			for i in range(twist_x, end_cell.x + 1):
 				corridor_list.append(Vector2i(i, end_cell.y))
-			for cell in corridor_list:
-				world.floor.set_cells_terrain_connect(
-					[cell],
-					GlobalValue.TerrainSet.DEFAULT,
-					GlobalValue.LevelTerrian.FLOOR,
-				)
+			
+			world.floor.set_cells_terrain_connect(
+				corridor_list,
+				GlobalValue.TerrainSet.DEFAULT,
+				GlobalValue.LevelTerrian.FLOOR,
+			)
+			
+				
 	# 纵向
 	for x in [0,1,2]:
 		for y in [0,1]:
@@ -151,12 +180,12 @@ func dig_nine_rect_rooms_and_z_connect():
 				corridor_list.append(Vector2i(i, twist_y))
 			for i in range(twist_y, end_cell.y + 1):
 				corridor_list.append(Vector2i(end_cell.x, i))
-			for cell in corridor_list:
-				world.floor.set_cells_terrain_connect(
-					[cell],
-					GlobalValue.TerrainSet.DEFAULT,
-					GlobalValue.LevelTerrian.FLOOR,
-				)
+
+			world.floor.set_cells_terrain_connect(
+				corridor_list,
+				GlobalValue.TerrainSet.DEFAULT,
+				GlobalValue.LevelTerrian.FLOOR,
+			)
 	
 func place_stairs(room_list:Array[Rect2i]):
 	# 楼梯放置

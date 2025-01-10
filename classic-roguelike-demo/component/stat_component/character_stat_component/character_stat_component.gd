@@ -15,7 +15,7 @@ const STRENGTH_EFFECT : Dictionary = {
 const AGILITY_EFFECT : Dictionary = {
 	"speed":0.05,
 	"armor":0.2,
-	"evasion":0.001,
+	"evasion":0.002,
 }
 const CONSTITUTION_EFFECT : Dictionary = {
 	"max_hp":1.0,
@@ -46,22 +46,22 @@ func calculate_effective_stat():
 	for key in AGILITY_EFFECT.keys():
 		effective_stat.set(
 			key,
-			effective_stat.get(key) + base_attribute.agility * STRENGTH_EFFECT[key]
+			effective_stat.get(key) + base_attribute.agility * AGILITY_EFFECT[key]
 		)
 	for key in CONSTITUTION_EFFECT.keys():
 		effective_stat.set(
 			key,
-			effective_stat.get(key) + base_attribute.constitution * STRENGTH_EFFECT[key]
+			effective_stat.get(key) + base_attribute.constitution * CONSTITUTION_EFFECT[key]
 		)
 	for key in DEXTERITY_EFFECT.keys():
 		effective_stat.set(
 			key,
-			effective_stat.get(key) + base_attribute.dexterity * STRENGTH_EFFECT[key]
+			effective_stat.get(key) + base_attribute.dexterity * DEXTERITY_EFFECT[key]
 		)
 	for key in INTELLIGENCE_EFFECT.keys():
 		effective_stat.set(
 			key,
-			effective_stat.get(key) + base_attribute.intelligence * STRENGTH_EFFECT[key]
+			effective_stat.get(key) + base_attribute.intelligence * INTELLIGENCE_EFFECT[key]
 		)
 
 func set_hp(v:float):

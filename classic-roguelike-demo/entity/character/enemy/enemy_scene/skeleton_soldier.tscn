@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://bm5thjcht382p"]
+
+[ext_resource type="PackedScene" uid="uid://15k0rswl20d3" path="res://entity/character/enemy/enemy.tscn" id="1_b0806"]
+[ext_resource type="Script" path="res://component/stat_component/character_stat_component/enemy_stat_component/enemy_stat_component.gd" id="2_es4sp"]
+[ext_resource type="Script" path="res://resource/entity_stat/character_stat/enemy_stat/enemy_stat.gd" id="3_vplq0"]
+[ext_resource type="Script" path="res://resource/base_attribute/base_attribute.gd" id="4_rumv7"]
+
+[sub_resource type="Resource" id="Resource_n4nuu"]
+resource_local_to_scene = true
+script = ExtResource("3_vplq0")
+exp_reward = 20
+max_hp = 20.0
+max_mp = 0.0
+sight = 8
+name = "骷髅士兵"
+flavored_text = "他们骨感的身躯带来了这样的好处: 刺中肋骨的缝隙等于没打中"
+speed = 5.0
+tick_to_wait = 0
+atk = 10.0
+crit = 0.1
+precision = 0.1
+block = 3.0
+armor = 8.0
+evasion = 0.17
+
+[sub_resource type="Resource" id="Resource_hmj2y"]
+resource_local_to_scene = true
+script = ExtResource("4_rumv7")
+strength = 10.0
+agility = 16.0
+constitution = 10.0
+dexterity = 10.0
+intelligence = 0.0
+
+[node name="SkeletonSoldier" instance=ExtResource("1_b0806")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(160, 0, 32, 32)
+
+[node name="EnemyStatComponent" type="Node" parent="." index="3"]
+script = ExtResource("2_es4sp")
+base_character_stat = SubResource("Resource_n4nuu")
+base_attribute = SubResource("Resource_hmj2y")

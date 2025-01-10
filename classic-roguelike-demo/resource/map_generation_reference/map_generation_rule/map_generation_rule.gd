@@ -5,6 +5,7 @@ class_name MapGenerationRule
 var level_count : int # 当前层数, 从world输入
 var world : World
 
+
 func initialize(p_level_count : int, p_world : World):
 	level_count = p_level_count
 	world = p_world

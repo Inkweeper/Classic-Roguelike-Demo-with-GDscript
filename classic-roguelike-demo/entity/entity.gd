@@ -10,6 +10,9 @@ var grid_pos : Vector2i:
 	get():
 		var world : World = GlobalValue.main_scene.world
 		return world.floor.local_to_map(position)
+	set(v):
+		var world : World = GlobalValue.main_scene.world
+		position = world.floor.map_to_local(v)
 
 func initialize():
 	for child in get_children():
@@ -30,3 +33,11 @@ func try_execute(method_name : String, args : Array):
 		if component.has_method(method_name):
 			component.callv(method_name, args)
 			return
+
+func if_should_act()->bool:
+	for component in component_list:
+		if component is CharacterStatComponent:
+			return component.if_should_act()
+		elif component is ProjectileStatComponent:
+			return component.if_should_act()
+	return false
